@@ -34,7 +34,7 @@ export function setupServer() {
   app.get('/contacts/:contactId', async (req, res, next) => {
     const { contactId } = req.params;
     const contact = await getContactById(contactId);
-    if (!student) {
+    if (!contact) {
       res.status(404).json({
         message: 'Contact not found',
       });
@@ -52,7 +52,7 @@ export function setupServer() {
     });
   });
 
-  app.use((err, req, res) => {
+  app.use((err, req, res, next) => {
     res.status(500).json({
       message: 'Something went wrong',
       error: err.message,
