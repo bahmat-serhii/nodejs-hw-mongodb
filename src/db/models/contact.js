@@ -1,6 +1,6 @@
 // src/db/models/contact.js
 
-import { model, Schema } from 'mongoose';
+import { model, Schema, mongoose } from 'mongoose';
 
 const contactsSchema = new Schema(
   {
@@ -26,6 +26,11 @@ const contactsSchema = new Schema(
       type: Boolean,
       required: false,
       default: false,
+    },
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      required: true,
     },
   },
   {
