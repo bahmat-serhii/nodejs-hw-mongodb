@@ -16,21 +16,6 @@ parameters:
 responses:
   '204':
     description: ''
-    content:
-      application/json:
-        schema:
-          type: object
-          required:
-            - status
-            - message
-
-          properties:
-            status:
-              type: integer
-              example: 204
-            message:
-              type: string
-              example:
 
   '404':
     $ref: '../../../components/responses/404.yaml'
