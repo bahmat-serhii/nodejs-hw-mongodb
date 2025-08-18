@@ -14,7 +14,7 @@
       "url": "http://localhost:3000"
     },
     {
-      "url": "https://example.com/api/v1"
+      "url": "https://nodejs-hw-mongodb-fkgj.onrender.com"
     }
   ],
   "tags": [
@@ -58,7 +58,7 @@
                     "example": "John Doe"
                   },
                   "phoneNumber": {
-                    "description": "Student's age",
+                    "description": "Contact's phone number",
                     "type": "string",
                     "example": 1234567890
                   },
@@ -81,13 +81,8 @@
                     "type": "boolean",
                     "example": false
                   },
-                  "parentId": {
-                    "description": "Student's parent id",
-                    "type": "string",
-                    "example": "65e4decdd286b30065d54af9"
-                  },
                   "photo": {
-                    "description": "Student's photo",
+                    "description": "Contact's photo",
                     "type": "string",
                     "format": "binary"
                   }
@@ -98,7 +93,7 @@
         },
         "responses": {
           "201": {
-            "description": "Creates a student",
+            "description": "Successfully created a contact!",
             "content": {
               "application/json": {
                 "schema": {
@@ -365,6 +360,51 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "Contact's name",
+                    "type": "string",
+                    "example": "John Doe"
+                  },
+                  "phoneNumber": {
+                    "description": "Contact's phone number",
+                    "type": "string",
+                    "example": 1234567890
+                  },
+                  "contactType": {
+                    "description": "Contact's contactType",
+                    "type": "string",
+                    "enum": [
+                      "work",
+                      "home",
+                      "personal"
+                    ]
+                  },
+                  "email": {
+                    "description": "Contact's email",
+                    "type": "string",
+                    "example": "name@gmail.com"
+                  },
+                  "isFavourite": {
+                    "description": "Contact is favourite",
+                    "type": "boolean",
+                    "example": false
+                  },
+                  "photo": {
+                    "description": "Contact's photo",
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Patch contact by id",
@@ -424,8 +464,8 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "Delete contact by id",
+          "204": {
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {

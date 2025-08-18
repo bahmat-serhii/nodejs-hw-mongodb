@@ -23,7 +23,7 @@ requestBody:
             type: string
             example: 'John Doe'
           phoneNumber:
-            description: "Student's age"
+            description: "Contact's phone number"
             type: string
             example: 1234567890
           contactType:
@@ -38,17 +38,14 @@ requestBody:
             description: 'Contact is favourite'
             type: boolean
             example: false
-          parentId:
-            description: "Student's parent id"
-            type: string
-            example: 65e4decdd286b30065d54af9
           photo:
-            description: "Student's photo"
+            description: "Contact's photo"
             type: string
             format: binary
+
 responses:
   '201':
-    description: Creates a student
+    description: Successfully created a contact!
     content:
       application/json:
         schema:
